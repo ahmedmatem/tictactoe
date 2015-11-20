@@ -22,11 +22,11 @@
         public string Board { get; set; }
 
         [Required]
-        public string FirstPLayerId { get; set; }
+        public string FirstPlayerId { get; set; }
 
         public string SecondPlayerId { get; set; }
 
-        public virtual ApplicationUser FirstPLayer { get; set; }
+        public virtual ApplicationUser FirstPlayer { get; set; }
 
         public virtual ApplicationUser SecondPlayer { get; set; }
     }

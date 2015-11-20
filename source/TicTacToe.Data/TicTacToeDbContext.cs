@@ -19,5 +19,9 @@
         {
             return new TicTacToeDbContext();
         }
+
+        public IDbSet<Game> Games { get; set; }
+
+
     }
 }
