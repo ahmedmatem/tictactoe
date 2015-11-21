@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\TicTacToe\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\TicTacToe\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -199,6 +203,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -206,9 +211,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataModels\GameInfoDataModel.cs" />
+    <Compile Include="DataModels\PlayRequestDataModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,6 +275,10 @@
     <ProjectReference Include="..\TicTacToe.Data\TicTacToe.Data.csproj">
       <Project>{90b6cadf-d9b7-4c82-85f0-d03b237800b4}</Project>
       <Name>TicTacToe.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TicTacToe.GameLogic\TicTacToe.GameLogic.csproj">
+      <Project>{c57b7d0b-c4c5-4ded-b0b0-26abebddfaf3}</Project>
+      <Name>TicTacToe.GameLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\TicTacToe.Models\TicTacToe.Models.csproj">
       <Project>{92b6f91a-56fb-435e-8f1d-dbed69d58df9}</Project>

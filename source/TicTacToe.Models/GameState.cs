@@ -7,6 +7,6 @@
         TurnO = 2,
         Draw = 3,
         FirstPlayerWon = 4,
-        SecondPlayerWon = 5
+        SecondPlayerWon = 5,
     }
 }
