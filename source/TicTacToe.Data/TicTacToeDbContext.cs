@@ -10,7 +10,7 @@
     public class TicTacToeDbContext : IdentityDbContext<ApplicationUser>
     {
         public TicTacToeDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("TicTacToeConnection", throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<TicTacToeDbContext, Configuration>());
         }
