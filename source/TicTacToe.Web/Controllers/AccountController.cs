@@ -1,6 +1,7 @@
 ﻿namespace TicTacToe.Web.Controllers
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Security.Claims;
@@ -20,6 +21,9 @@
     using TicTacToe.Web.Providers;
     using TicTacToe.Web.Results;
     using TicTacToe.Models;
+    using Data;
+    using DataModels;
+    using System.Data.Entity;
 
     [Authorize]
     [RoutePrefix("api/Account")]
@@ -320,6 +324,30 @@
             return logins;
         }
 
+        public async Task<IHttpActionResult> Identity()
+        {
+            var userId = this.User.Identity.GetUserId();
+
+            var db = new TicTacToeDbContext();
+
+            var user = await db.Users
+                .Where(u => u.Id == userId)
+                .Select(u => new UserInfoDataModel
+                {
+                    UserId = u.Id,
+                    DisplayName = u.DisplayName,
+                    Email = u.Email
+                })
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return InternalServerError(new Exception("Somthing bad happened :( !"));
+            }
+
+            return this.Json(user);
+        }
+
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -330,7 +358,7 @@
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, DisplayName = model.DisplayName, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

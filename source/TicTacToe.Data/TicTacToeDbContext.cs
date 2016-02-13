@@ -20,8 +20,8 @@
             return new TicTacToeDbContext();
         }
 
-        public IDbSet<Game> Games { get; set; }
+        public virtual IDbSet<Game> Games { get; set; }
 
-
+        public virtual IDbSet<Token> Tokens { get; set; }
     }
 }

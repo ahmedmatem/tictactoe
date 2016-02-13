@@ -13,7 +13,8 @@
     using Data;
     using TicTacToe.Models;
     using DataModels;
-    
+    using System.IO;
+
     public class GamesController : BaseController
     {
         private IGameResultValidator resultValidator;
@@ -34,6 +35,7 @@
         public IHttpActionResult Create()
         {
             var currentUserId = this.User.Identity.GetUserId();
+
             var newGame = new Game()
             {
                 FirstPlayerId = currentUserId,

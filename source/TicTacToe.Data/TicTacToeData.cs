@@ -26,6 +26,14 @@
             }
         }
 
+        public IRepository<Token> Tokens
+        {
+            get
+            {
+                return this.GetRepository<Token>();
+            }
+        }
+
         public IRepository<ApplicationUser> Users
         {
             get

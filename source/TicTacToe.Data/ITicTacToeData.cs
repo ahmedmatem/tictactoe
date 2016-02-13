@@ -9,6 +9,8 @@
 
         IRepository<Game> Games { get; }
 
+        IRepository<Token> Tokens { get; }
+
         int SaveChanges();
     }
 }

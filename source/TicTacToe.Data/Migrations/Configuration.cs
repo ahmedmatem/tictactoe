@@ -10,7 +10,8 @@ namespace TicTacToe.Data.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
-            this.AutomaticMigrationDataLossAllowed = false;
+            // TODO: set this.AutomaticMigrationDataLossAllowed to false
+            this.AutomaticMigrationDataLossAllowed = true;
         }
     }
 }

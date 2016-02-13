@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Times New Roman', Verdana, Arial;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -15,3 +16,27 @@ select,
 textarea {
     max-width: 280px;
 }
+
+h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.tictactoe-board {
+}
+
+    .tictactoe-board thead {
+        font: 2em;
+    }
+
+    .tictactoe-board tbody{
+        
+    }
+
+    .tictactoe-board tbody td {
+        border: 1px solid #808080;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        vertical-align: central;
+        background-color: #dddddd;
+    }
